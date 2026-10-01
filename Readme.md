@@ -13,26 +13,26 @@ Developed for **Nikita Logistics Pvt. Ltd.** under the **F13 Technologies Intern
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
-- [Architecture Overview](#-architecture-overview)
-- [Key Features](#-key-features)
-- [System Processing Workflow](#-system-processing-workflow)
-- [AWS Infrastructure Breakdown](#-aws-infrastructure-breakdown)
+- [Architecture Overview](#architecture-overview)
+- [Key Features](#key-features)
+- [System Processing Workflow](#system-processing-workflow)
+- [AWS Infrastructure Breakdown](#aws-infrastructure-breakdown)
   - [1. Event Ingestion & Queueing (API Gateway + SQS)](#1-event-ingestion--queueing-api-gateway--sqs)
   - [2. Serverless Payroll Worker (AWS Lambda + ReportLab Layer)](#2-serverless-payroll-worker-aws-lambda--reportlab-layer)
   - [3. Database Design (Amazon DynamoDB)](#3-database-design-amazon-dynamodb)
   - [4. Storage & Payslip Delivery (Amazon S3 + Amazon SES)](#4-storage--payslip-delivery-amazon-s3--amazon-ses)
   - [5. HR Administration Portal (S3 Static Hosting)](#5-hr-administration-portal-s3-static-hosting)
-- [Payroll Calculation Logic](#-payroll-calculation-logic)
-- [Security, IAM & Observability](#-security-iam--observability)
-- [Cost Model & Financial Analysis](#-cost-model--financial-analysis)
-- [Project Assets & Documentation Catalog](#-project-assets--documentation-catalog)
-- [Team & Acknowledgments](#-team--acknowledgments)
+- [Payroll Calculation Logic](#payroll-calculation-logic)
+- [Security, IAM & Observability](#security-iam--observability)
+- [Cost Model & Financial Analysis](#cost-model--financial-analysis)
+- [Project Assets & Documentation Catalog](#project-assets--documentation-catalog)
+- [Team & Acknowledgments](#team--acknowledgments)
 
 ---
 
-## 📐 Architecture Overview
+## Architecture Overview
 
 The system employs a **decoupled, asynchronous, event-driven microservice architecture** designed for zero-idle cost, high throughput, fault tolerance, and strict data isolation.
 
@@ -46,7 +46,7 @@ The system employs a **decoupled, asynchronous, event-driven microservice archit
 
 ---
 
-## ✨ Key Features
+## Key Features
 
 - **Automated Net Pay Computation**: Dynamically calculates Gross Salary, HRA, Allowances, PF, Loan Deductions, and Tax Deducted at Source (TDS).
 - **Dynamic Vector PDF Rendering**: Uses a dedicated AWS Lambda Layer packaged with `ReportLab` to produce clean, high-resolution PDF payslips.
@@ -57,7 +57,7 @@ The system employs a **decoupled, asynchronous, event-driven microservice archit
 
 ---
 
-## 🔄 System Processing Workflow
+## System Processing Workflow
 
 ```mermaid
 sequenceDiagram
@@ -89,7 +89,7 @@ sequenceDiagram
 
 ---
 
-## 🛠️ AWS Infrastructure Breakdown
+## AWS Infrastructure Breakdown
 
 ### 1. Event Ingestion & Queueing (API Gateway + SQS)
 * **Amazon SQS Queue (`automatic-payroll-queue`)**: Standard queue acting as the primary buffer between the web frontend and worker services.
@@ -164,7 +164,7 @@ The front-end operational dashboard is hosted on an S3 bucket configured for sta
 
 ---
 
-## 🧮 Payroll Calculation Logic
+## Payroll Calculation Logic
 
 The mathematical engine applies the following formula for every active employee:
 
@@ -188,7 +188,7 @@ $$\text{Net Pay} = \text{Gross Salary} - \text{Total Deductions}$$
 
 ---
 
-## 🔒 Security, IAM & Observability
+## Security, IAM & Observability
 
 ### 1. IAM Execution Role (`PayrollWorkerExecutionRole`)
 Configured following the **Principle of Least Privilege**:
@@ -207,7 +207,7 @@ Logs are ingested in real-time under `/aws/lambda/payroll-worker`, capturing eve
 
 ---
 
-## 📊 Cost Model & Financial Analysis
+## Cost Model & Financial Analysis
 
 Extracted from the project cost estimation model (`Automatic_Payroll_Cost_Estimation (1).xlsx`), modeled against public AWS pricing in region `ap-south-2` (Hyderabad).
 
@@ -224,16 +224,16 @@ Moving the `payroll-worker` function from x86_64 to Graviton2 (`arm64`) yields a
 
 ---
 
-## 📁 Project Assets & Documentation Catalog
+## Project Assets & Documentation Catalog
 
-- 📄 **Full Technical Report**: [`Automatic_Payroll_Processing_Final_Documentation_FINAL (1).pdf`](./Automatic_Payroll_Processing_Final_Documentation_FINAL%20(1).pdf)
-- 📊 **Cost Model Workbook**: [`Automatic_Payroll_Cost_Estimation (1).xlsx`](./Automatic_Payroll_Cost_Estimation%20(1).xlsx)
-- 🖼️ **Image & Screenshot Index**: [`docs/IMAGE_INDEX.md`](./docs/IMAGE_INDEX.md)
-- 📂 **Extracted Visual Assets**: Located in the [`docs/`](./docs/) directory.
+- **Full Technical Report**: [`Automatic_Payroll_Processing_Final_Documentation_FINAL (1).pdf`](./Automatic_Payroll_Processing_Final_Documentation_FINAL%20(1).pdf)
+- **Cost Model Workbook**: [`Automatic_Payroll_Cost_Estimation (1).xlsx`](./Automatic_Payroll_Cost_Estimation%20(1).xlsx)
+- **Image & Screenshot Index**: [`docs/IMAGE_INDEX.md`](./docs/IMAGE_INDEX.md)
+- **Extracted Visual Assets**: Located in the [`docs/`](./docs/) directory.
 
 ---
 
-## 👥 Team & Acknowledgments
+## Team & Acknowledgments
 
 ### Project Team (Team Nikitha)
 - **Nikitha J** — Team Representative
